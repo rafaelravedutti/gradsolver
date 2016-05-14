@@ -1,0 +1,28 @@
+    gradSolver - Resolucionador de equações lineares pelo método do gradiente
+    Copyright(c) 2014 Rafael Ravedutti Lucio Machado - GRR20135958 - rrlm13
+
+=============================================================================
+
+    gradSolver.c: Código fonte do programa, contém a função principal,
+    as funções do método, função de raiz quadrada e algumas funções
+    auxiliares utilizadas no programa.
+
+    Makefile: Contém as instruções para compilar e linkar o programa,
+    além da função para limpar os arquivos gerados durante a
+    compilação/linkagem no diretório do programa.
+
+=============================================================================
+
+    - As matrizes são alocadas como vetores para que se situem em regiões
+    contínuas de memória e assim tira-se mais proveito da cache.
+
+    - Na multiplicação da matriz A com os vetores dir' e dir
+    multiplica-se por 2 os cálculos dos valores acima da diagonal
+    principal, pois como A é simétrica, A[i,j] = A[j,i], assim
+    só se percorre a matriz A nesses elementos e o número de
+    operações é reduzido.
+
+    - No cálculo da norma do resíduo já são calculados o valor
+    do vetor Ax - b que é o resíduo em si e o módulo desse vetor
+    (que é igual ao valor da norma ao quadrado, i.e. sem calcular
+    sua raiz quadrada)
